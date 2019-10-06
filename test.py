@@ -32,8 +32,8 @@ font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
 font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 font12 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
 
-blackimage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-redimage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+blackimage = Image.new('1', (EPD_WIDTH, EPD_HEIGHT), 255)  # 255: clear the frame
+redimage = Image.new('1', (EPD_WIDTH, EPD_HEIGHT), 255)  # 255: clear the frame
 
 # Text
 x = 25
