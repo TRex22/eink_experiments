@@ -51,7 +51,7 @@ def init_epd():
   return epd
 
 def display_image(epd, black_image, red_image):
-  epd.display(epd.getbuffer(black), epd.getbuffer(red))
+  epd.display(epd.getbuffer(black_image), epd.getbuffer(red_image))
   epd.sleep()
 
 def display_text(epd, string, is_red, blank_image, x, y, size, fill, font):
