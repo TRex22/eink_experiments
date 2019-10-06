@@ -8,7 +8,7 @@ libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__)
 fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
 
 if os.path.exists(libdir):
-    sys.path.append(libdir)
+  sys.path.append(libdir)
 
 import logging
 from waveshare_epd import epd2in7b
@@ -104,10 +104,18 @@ def process_button(btn):
   epd2in7b.epdconfig.module_exit()
   exit()
 
+epd = init_epd()
+black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
+display_image(epd, black_image, blank_image)
+epd.sleep()
+epd2in7b.epdconfig.module_exit()
+
 btn1.when_pressed = process_button
 btn2.when_pressed = process_button
 btn3.when_pressed = process_button
 btn4.when_pressed = process_button
+
+
 
 # Notes:
 
