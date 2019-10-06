@@ -107,17 +107,31 @@ def process_button(epd, pin):
 
     display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
-  epd.sleep()
+  # epd.sleep()
   # epd2in7b.epdconfig.module_exit()
   # exit()
 
-epd = init_epd()
-blank_image = Image.new('1', (epd.width, epd.height), 255)
-black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
-display_image(epd, black_image, blank_image)
+# epd = init_epd()
+# blank_image = Image.new('1', (epd.width, epd.height), 255)
+# black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
+# display_image(epd, black_image, blank_image)
+
 # epd.sleep()
 # epd2in7b.epdconfig.module_exit()
 # return lambda: print("Pressed 1")
+
+
+string = "The quick brown fox jumps over the lazy dog"
+is_red = True
+
+x = 25
+y = 65
+size = 12
+fill = 0
+font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
+
+display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
+
 
 btn1.when_pressed = lambda: process_button(epd, 1)
 btn2.when_pressed = lambda: process_button(epd, 2)
