@@ -3,6 +3,10 @@
 import sys
 import os
 
+picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
+libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
+
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
@@ -14,10 +18,6 @@ from gpiozero import Button
 import traceback
 
 # Constants
-picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
-libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
-fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'fonts')
-
 logging.basicConfig(level=logging.DEBUG)
 # Display resolution
 EPD_WIDTH       = 176
