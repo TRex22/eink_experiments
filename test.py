@@ -69,61 +69,65 @@ def display_text(epd, string, is_red, blank_image, x, y, size, fill, font):
   else:
     epd.display(epd.getbuffer(image), epd.getbuffer(blank_image))
 
-def process_button(epd, pin):
-  # pin = btn.pin.number
-  # epd = init_epd()
-  print("button pressed")
-  print(pin)
+# def process_button(epd, pin):
+#   # pin = btn.pin.number
+#   # epd = init_epd()
+#   print("button pressed")
+#   print(pin)
 
-  blank_image = Image.new('1', (epd.width, epd.height), 255)
+#   blank_image = Image.new('1', (epd.width, epd.height), 255)
 
-  # 5, 6, 13, 19
-  if (pin == 5):
-    black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
-    display_image(epd, black_image, blank_image)
-  if (pin == 6):
-    red_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
-    display_image(epd, blank_image, red_image)
-  if (pin == 13):
-    string = "The quick brown fox jumps over the lazy dog"
-    is_red = False
+#   # 5, 6, 13, 19
+#   if (pin == 5):
+#     black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
+#     display_image(epd, black_image, blank_image)
+#   if (pin == 6):
+#     red_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
+#     display_image(epd, blank_image, red_image)
+#   if (pin == 13):
+#     string = "The quick brown fox jumps over the lazy dog"
+#     is_red = False
 
-    x = 25
-    y = 65
-    size = 14
-    fill = 0
-    font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
+#     x = 25
+#     y = 65
+#     size = 14
+#     fill = 0
+#     font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
-    display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
-  if (pin == 19):
-    string = "The quick brown fox jumps over the lazy dog"
-    is_red = True
+#     display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
+#   if (pin == 19):
+#     string = "The quick brown fox jumps over the lazy dog"
+#     is_red = True
 
-    x = 25
-    y = 65
-    size = 14
-    fill = 0
-    font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
+#     x = 25
+#     y = 65
+#     size = 14
+#     fill = 0
+#     font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
-    display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
+#     display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
   # epd.sleep()
   # epd2in7b.epdconfig.module_exit()
   # exit()
 
 def snoopy(epd, pin):
-  print("button pressed: "+ pin)
+  print("button pressed")
+  epd.Clear()
   blank_image = Image.new('1', (epd.width, epd.height), 255)
   black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
   display_image(epd, black_image, blank_image)
 
 def snoopy_red(epd, pin):
-  print("button pressed: "+ pin)
+  print("button pressed")
+  epd.Clear()
   blank_image = Image.new('1', (epd.width, epd.height), 255)
   red_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
   display_image(epd, blank_image, red_image)
 
 def text_black(epd, pin):
+  print("button pressed")
+  epd.Clear()
   string = "The quick brown fox jumps over the lazy dog"
   is_red = False
 
@@ -136,6 +140,8 @@ def text_black(epd, pin):
   display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
 def text_red(epd, pin):
+  print("button pressed")
+  epd.Clear()
   string = "The quick brown fox jumps over the lazy dog"
   is_red = True
 
