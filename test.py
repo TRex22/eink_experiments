@@ -15,6 +15,7 @@ from waveshare_epd import epd2in7b
 import time
 from PIL import Image,ImageDraw,ImageFont
 from gpiozero import Button
+from signal import pause
 import traceback
 
 # Constants
@@ -122,8 +123,8 @@ btn2.when_pressed = process_button
 btn3.when_pressed = process_button
 btn4.when_pressed = process_button
 
-# pause()
-input("Press any key")
+pause()
+# input("Press any key")
 
 # Notes:
 
