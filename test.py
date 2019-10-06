@@ -69,8 +69,8 @@ def display_text(epd, string, is_red, blank_image, x, y, size, fill, font):
   else:
     epd.display(epd.getbuffer(image), epd.getbuffer(image))
 
-def process_button(btn):
-  pin = btn.pin.number
+def process_button(pin):
+  # pin = btn.pin.number
   epd = init_epd()
   print("button pressed")
   print(pin)
@@ -117,11 +117,12 @@ black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
 display_image(epd, black_image, blank_image)
 # epd.sleep()
 # epd2in7b.epdconfig.module_exit()
+# return lambda: print("Pressed 1")
 
-btn1.when_pressed = process_button
-btn2.when_pressed = process_button
-btn3.when_pressed = process_button
-btn4.when_pressed = process_button
+btn1.when_pressed = lambda: process_button(1)
+btn2.when_pressed = lambda: process_button(2)
+btn3.when_pressed = lambda: process_button(3)
+btn4.when_pressed = lambda: process_button(4)
 
 pause()
 # input("Press any key")
