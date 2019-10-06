@@ -133,15 +133,15 @@ font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
 display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
-# btn1.when_pressed = lambda: process_button(epd, 1)
-# btn2.when_pressed = lambda: process_button(epd, 2)
-# btn3.when_pressed = lambda: process_button(epd, 3)
-# btn4.when_pressed = lambda: process_button(epd, 4)
+btn1.when_pressed = lambda: process_button(epd, 1)
+btn2.when_pressed = lambda: process_button(epd, 2)
+btn3.when_pressed = lambda: process_button(epd, 3)
+btn4.when_pressed = lambda: process_button(epd, 4)
 
-btn1.when_pressed = lambda: print(1)
-btn2.when_pressed = lambda: print(2)
-btn3.when_pressed = lambda: print(3)
-btn4.when_pressed = lambda: print(4)
+# btn1.when_pressed = lambda: print(1)
+# btn2.when_pressed = lambda: print(2)
+# btn3.when_pressed = lambda: print(3)
+# btn4.when_pressed = lambda: print(4)
 
 pause()
 # input("Press any key")
