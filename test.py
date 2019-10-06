@@ -112,7 +112,7 @@ def process_button(epd, pin):
   # exit()
 
 epd = init_epd()
-blank_image = Image.new('1', (epd.width, epd.height), 255)
+blank_image = Image.new('1', (epd.height, epd.width), 255)
 black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
 # display_image(epd, black_image, blank_image)
 
@@ -121,10 +121,10 @@ black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
 # return lambda: print("Pressed 1")
 
 string = "The quick brown fox jumps over the lazy dog"
-is_red = True
+is_red = False
 
-x = 25
-y = 65
+x = 10
+y = 10
 size = 12
 fill = 0
 font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
