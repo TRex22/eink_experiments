@@ -35,7 +35,7 @@ btn4 = Button(19)
 
 font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
 font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-font12 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
+font14 = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
 blackimage = Image.new('1', (EPD_WIDTH, EPD_HEIGHT), 255)  # 255: clear the frame
 redimage = Image.new('1', (EPD_WIDTH, EPD_HEIGHT), 255)  # 255: clear the frame
@@ -43,9 +43,9 @@ redimage = Image.new('1', (EPD_WIDTH, EPD_HEIGHT), 255)  # 255: clear the frame
 # Text
 x = 25
 y = 65
-size = 12
+size = 14
 fill = 0
-font = font12
+font = font14
 
 def init_epd():
   # epd = epd2in7.EPD() # B/W only
@@ -90,9 +90,9 @@ def process_button(epd, pin):
 
     x = 25
     y = 65
-    size = 12
+    size = 14
     fill = 0
-    font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
+    font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
     display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
   if (pin == 19):
@@ -101,9 +101,9 @@ def process_button(epd, pin):
 
     x = 25
     y = 65
-    size = 12
+    size = 14
     fill = 0
-    font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
+    font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
     display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
@@ -125,21 +125,21 @@ is_red = False
 
 x = 10
 y = 10
-size = 12
+size = 14
 fill = 0
-font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
+font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Bold.ttf'), 14)
 
 display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
-btn1.when_pressed = lambda: process_button(epd, 1)
-btn2.when_pressed = lambda: process_button(epd, 2)
-btn3.when_pressed = lambda: process_button(epd, 3)
-btn4.when_pressed = lambda: process_button(epd, 4)
+# btn1.when_pressed = lambda: process_button(epd, 1)
+# btn2.when_pressed = lambda: process_button(epd, 2)
+# btn3.when_pressed = lambda: process_button(epd, 3)
+# btn4.when_pressed = lambda: process_button(epd, 4)
 
-# btn1.when_pressed = lambda: print(1)
-# btn2.when_pressed = lambda: print(2)
-# btn3.when_pressed = lambda: print(3)
-# btn4.when_pressed = lambda: print(4)
+btn1.when_pressed = lambda: print(1)
+btn2.when_pressed = lambda: print(2)
+btn3.when_pressed = lambda: print(3)
+btn4.when_pressed = lambda: print(4)
 
 pause()
 # input("Press any key")
