@@ -112,6 +112,8 @@ def process_button(epd, pin):
   # exit()
 
 epd = init_epd()
+# horizontal (epd.height, epd.width)
+# vertical (epd.width, epd.height)
 blank_image = Image.new('1', (epd.height, epd.width), 255)
 black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
 # display_image(epd, black_image, blank_image)
