@@ -115,7 +115,7 @@ btn2.when_pressed = process_button
 btn3.when_pressed = process_button
 btn4.when_pressed = process_button
 
-
+pause()
 
 # Notes:
 
