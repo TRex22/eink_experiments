@@ -69,9 +69,9 @@ def display_text(epd, string, is_red, blank_image, x, y, size, fill, font):
   else:
     epd.display(epd.getbuffer(image), epd.getbuffer(image))
 
-def process_button(pin):
+def process_button(epd, pin):
   # pin = btn.pin.number
-  epd = init_epd()
+  # epd = init_epd()
   print("button pressed")
   print(pin)
 
@@ -108,8 +108,8 @@ def process_button(pin):
     display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
 
   epd.sleep()
-  epd2in7b.epdconfig.module_exit()
-  exit()
+  # epd2in7b.epdconfig.module_exit()
+  # exit()
 
 epd = init_epd()
 blank_image = Image.new('1', (epd.width, epd.height), 255)
@@ -119,15 +119,15 @@ display_image(epd, black_image, blank_image)
 # epd2in7b.epdconfig.module_exit()
 # return lambda: print("Pressed 1")
 
-# btn1.when_pressed = lambda: process_button(1)
-# btn2.when_pressed = lambda: process_button(2)
-# btn3.when_pressed = lambda: process_button(3)
-# btn4.when_pressed = lambda: process_button(4)
+btn1.when_pressed = lambda: process_button(epd, 1)
+btn2.when_pressed = lambda: process_button(epd, 2)
+btn3.when_pressed = lambda: process_button(epd, 3)
+btn4.when_pressed = lambda: process_button(epd, 4)
 
-btn1.when_pressed = lambda: print(1)
-btn2.when_pressed = lambda: print(2)
-btn3.when_pressed = lambda: print(3)
-btn4.when_pressed = lambda: print(4)
+# btn1.when_pressed = lambda: print(1)
+# btn2.when_pressed = lambda: print(2)
+# btn3.when_pressed = lambda: print(3)
+# btn4.when_pressed = lambda: print(4)
 
 pause()
 # input("Press any key")
@@ -145,5 +145,5 @@ pause()
 # epd.display(epd.getbuffer(black), epd.getbuffer(red))
 
 
-# logging.info("Goto Sleep...")
-# epd.sleep()
+logging.info("Goto Sleep...")
+epd.sleep()
