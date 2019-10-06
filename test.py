@@ -60,14 +60,14 @@ def display_image(epd, black_image, red_image):
   epd.sleep()
 
 def display_text(epd, string, is_red, blank_image, x, y, size, fill, font):
-  image = ImageDraw.Draw(blank_image)
-
+  image = blank_image
+  draw = ImageDraw.Draw(image)
   draw.text((x, y), string, font = font, fill = 0)
 
-  if (is_red == true):
+  if (is_red == True):
     epd.display(epd.getbuffer(blank_image), epd.getbuffer(image))
   else:
-    epd.display(epd.getbuffer(image), epd.getbuffer(image))
+    epd.display(epd.getbuffer(image), epd.getbuffer(blank_image))
 
 def process_button(epd, pin):
   # pin = btn.pin.number
@@ -111,15 +111,14 @@ def process_button(epd, pin):
   # epd2in7b.epdconfig.module_exit()
   # exit()
 
-# epd = init_epd()
-# blank_image = Image.new('1', (epd.width, epd.height), 255)
-# black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
+epd = init_epd()
+blank_image = Image.new('1', (epd.width, epd.height), 255)
+black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
 # display_image(epd, black_image, blank_image)
 
 # epd.sleep()
 # epd2in7b.epdconfig.module_exit()
 # return lambda: print("Pressed 1")
-
 
 string = "The quick brown fox jumps over the lazy dog"
 is_red = True
@@ -131,7 +130,6 @@ fill = 0
 font = ImageFont.truetype(os.path.join(fontdir, 'Roboto-Regular.ttf'), 12)
 
 display_text(epd, string, is_red, blank_image, x, y, size, fill, font)
-
 
 btn1.when_pressed = lambda: process_button(epd, 1)
 btn2.when_pressed = lambda: process_button(epd, 2)
