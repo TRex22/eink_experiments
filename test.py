@@ -27,6 +27,10 @@ btn1 = Button(5)
 btn2 = Button(6)
 btn3 = Button(13)
 btn4 = Button(19)
+GPIO.input(5)
+GPIO.input(6)
+GPIO.input(13)
+GPIO.input(19)
 
 font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
 font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
@@ -67,6 +71,8 @@ def display_text(epd, string, is_red, blank_image, x, y, size, fill, font):
 def process_button(btn):
   pin = btn.pin.number
   epd = init_epd()
+  print("button pressed")
+  print(pin)
 
   blank_image = Image.new('1', (epd.width, epd.height), 255)
 
@@ -108,15 +114,16 @@ epd = init_epd()
 blank_image = Image.new('1', (epd.width, epd.height), 255)
 black_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
 display_image(epd, black_image, blank_image)
-epd.sleep()
-epd2in7b.epdconfig.module_exit()
+# epd.sleep()
+# epd2in7b.epdconfig.module_exit()
 
 btn1.when_pressed = process_button
 btn2.when_pressed = process_button
 btn3.when_pressed = process_button
 btn4.when_pressed = process_button
 
-pause()
+# pause()
+input("Press any key")
 
 # Notes:
 
