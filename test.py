@@ -125,7 +125,7 @@ def snoopy_red(epd, pin):
   red_image = Image.open(os.path.join(picdir, '2in7bsnoopy.bmp'))
   display_image(epd, blank_image, red_image)
 
-def error(epd, pin)
+def error(epd, pin):
   print("button pressed")
   epd.Clear()
 
